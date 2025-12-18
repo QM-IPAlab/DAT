@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners -->
+  <meta name="DAT: Decoupled Adaptivity Training for Vision-Language Models in Open-Vocabulary Detection" 
+        content="A novel fine-tuning framework that bridges the global-local feature gap in VLMs for open-vocabulary object detection.">
+  <meta property="og:title" content="DAT: Decoupled Adaptivity Training for Vision-Language Models in Open-Vocabulary Detection"/>
+  <meta property="og:description" content="A lightweight fine-tuning paradigm that enhances region-level recognition while preserving global zero-shot capabilities."/>
+  <meta property="og:url" content=""/>
+  <!-- Optimal dimensions: 1200X630 -->
+  <!-- <meta property="og:image" content="static/images/banner.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+  <!-- Twitter meta tags -->
+  <!-- <meta name="twitter:title" content="DAT: Decoupled Adaptivity Training"> -->
+  <!-- <meta name="twitter:description" content="Bridging the global-local gap in VLMs for open-vocabulary detection"> -->
+  <!-- Optimal dimensions: 1200X600 -->
+  <!-- <meta name="twitter:image" content="static/images/twitter_banner.png"> -->
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  
+  <meta name="keywords" content="open-vocabulary detection, vision-language models, fine-tuning, self-supervised learning, object detection">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DAT: Decoupled Adaptivity Training for Vision-Language Models in Open-Vocabulary Detection</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title">
+              DAT: Decoupled Adaptivity Training for Vision-Language Models<br>
+              in Open-Vocabulary Detection
+            </h1>
+            
+            <div class="is-size-5 publication-authors">
+              <!-- Authors list - update with your team -->
+              <span class="author-block">
+                <a href="" target="_blank">Your Name</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_blank">Co-Author</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_blank">Senior Author</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Your University/Affiliation</span>
+              <span class="author-block"><sup>2</sup>Co-Author's Affiliation</span>
+            </div>
+
+            <!-- Conference badge -->
+            <div class="is-size-6 publication-venue">
+              <span class="conference-badge">Conference/Journal Name</span>
+            </div>
+
+            <!-- Links -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- arXiv Link -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                
+                <!-- PDF Link -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>PDF</span>
+                  </a>
+                </span>
+                
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract Section -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We address a critical bottleneck in cooperative open-vocabulary object detection: the <strong>Global–Local Feature Imbalance</strong> 
+              in pre-trained Vision-Language Models (VLMs). While VLMs excel at whole-image understanding, they struggle with cropped region 
+              proposals during detection, leading to suboptimal performance on novel object categories. To bridge this gap, we introduce 
+              <strong>Decoupled Adaptivity Training (DAT)</strong>, a self-supervised fine-tuning paradigm that efficiently adapts VLMs to region-level 
+              recognition without compromising their zero-shot capabilities.
+            </p>
+            <p>
+              DAT operates exclusively on the visual backbone using in-pipeline pseudo-labels from a frozen detector, constructing a 
+              perfectly domain-aligned training set. Through a novel combination of a sigmoid-based contrastive loss for robust multi-label 
+              learning and WiSE-FT for global knowledge preservation, DAT achieves significant improvements in novel-class detection while 
+              maintaining strong base-class performance—all with minimal computational overhead. Our method establishes new state-of-the-art 
+              results on COCO and LVIS benchmarks, providing a simple yet effective pathway toward more generalizable open-vocabulary vision systems.
+            </p>
+          </div>
+          <!-- Teaser image -->
+          <div class="teaser-image">
+            <img src="static/images/teaser.png" alt="DAT Framework Overview" width="80%" class="center-image"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method Section -->
+  <section class="hero section is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Methodology</h2>
+            <div class="content has-text-justified">
+              <p>
+                <strong>Decoupled Adaptivity Training (DAT)</strong> consists of two key stages:
+              </p>
+              <h3 class="title is-4">1. Region-Aware Data Construction</h3>
+              <p>
+                We construct a domain-aligned dataset $\mathcal{D}_{\text{region}}$ by cropping object proposals using a pre-trained 
+                Mask R-CNN. With hyperparameters $N_{\text{max}}=80$ (max proposals per image) and $\tau_{\text{conf}}=0.7$ (confidence threshold), 
+                we generate approximately 400K high-quality region-text pairs from 5K source images.
+              </p>
+              
+              <h3 class="title is-4">2. Decoupled Fine-Tuning</h3>
+              <p>
+                We fine-tune only the visual encoder of the VLM on $\mathcal{D}_{\text{region}}$ using a region-level contrastive objective. 
+                To preserve zero-shot capabilities, we employ <strong>WiSE-FT</strong> (Weight-Space Ensembling for Fine-Tuning) with 
+                interpolation coefficient $\alpha=0.5$. This ensures the adapted model $\mathcal{V}^{*}$ maintains its global semantic 
+                understanding while enhancing region-level discriminability.
+              </p>
+            </div>
+          </div>
+          <!-- Method figure -->
+          <div class="columns is-centered">
+            <div class="column">
+              <img src="static/images/method.png" alt="DAT Method Overview" width="100%" class="center-image"/>
+              <p class="has-text-centered is-italic">Figure: The DAT framework overview showing region-aware data construction and decoupled fine-tuning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="hero section is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Results</h2>
+            <div class="content has-text-justified">
+              <h3 class="title is-4">Main Results on COCO and LVIS</h3>
+              <p>
+                DAT achieves <strong>70.1 AP50 on novel categories</strong> in COCO 48/17 split, significantly outperforming 
+                all existing cooperative and end-to-end methods. On LVIS, DAT improves novel category AP by +0.26 over the 
+                strong CFM baseline while maintaining excellent known category performance.
+              </p>
+              
+              <h3 class="title is-4">Key Findings</h3>
+              <ul>
+                <li><strong>Efficiency:</strong> DAT fine-tuning completes in under 2 hours on a single GPU.</li>
+                <li><strong>Effectiveness:</strong> 20+ percentage point improvement over vanilla cooperative baselines.</li>
+                <li><strong>Generality:</strong> Consistent gains across both COCO and LVIS benchmarks.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Results table preview -->
+          <div class="columns is-centered">
+            <div class="column is-three-quarters">
+              <div class="box">
+                <h4 class="title is-5">Performance Comparison on COCO (Novel AP50)</h4>
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>AP50 (Novel)</th>
+                      <th>Improvement</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ViLD</td>
+                      <td>27.6</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>Detic</td>
+                      <td>27.8</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>CORA+</td>
+                      <td>43.1</td>
+                      <td>—</td>
+                    </tr>
+                    <tr class="has-background-primary-light">
+                      <td><strong>DAT (Ours)</strong></td>
+                      <td><strong>70.1</strong></td>
+                      <td><strong>+27.0</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Qualitative results -->
+          <div class="columns is-centered">
+            <div class="column">
+              <h4 class="title is-5">Qualitative Results</h4>
+              <img src="static/images/qualitative.png" alt="Qualitative comparison" width="100%" class="center-image"/>
+              <p class="has-text-centered is-italic">Figure: DAT produces more accurate and confident detections on novel objects compared to baselines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablation Studies -->
+  <section class="hero section is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Ablation Studies</h2>
+            <div class="content has-text-justified">
+              <p>
+                We conduct comprehensive ablations to validate DAT's design choices:
+              </p>
+              <div class="columns">
+                <div class="column">
+                  <h4 class="title is-5">Dataset Scale</h4>
+                  <p>Performance peaks at 500-1,000 images (~40K-80K crops), confirming that sufficient but not excessive data yields optimal adaptation.</p>
+                </div>
+                <div class="column">
+                  <h4 class="title is-5">WiSE-FT Interpolation</h4>
+                  <p>WiSE-FT ($\alpha=0.5$) improves LVIS novel AP by +1.7 with minimal COCO impact, demonstrating effective knowledge preservation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <h2 class="title is-3">Citation</h2>
+          <div class="content has-background-light p-4">
+            <pre><code>@article{yourpaper2024,
+  title={DAT: Decoupled Adaptivity Training for Vision-Language Models in Open-Vocabulary Detection},
+  author={Your Name and Co-Author and Senior Author},
+  journal={Conference/Journal Name},
+  year={2024}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+              Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
