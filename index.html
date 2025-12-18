@@ -24,8 +24,13 @@
   <nav class="navbar is-transparent is-fixed-top glass-nav" role="navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="#"><strong>DAT</strong></a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div class="navbar-menu">
+    <div id="navbarBasic" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item" href="#abstract">Abstract</a>
         <a class="navbar-item" href="#method">Method</a>
@@ -105,15 +110,15 @@
             <div class="content has-text-justified">
               <p>
                 We address the <strong class="highlight-text">Global–Local Feature Imbalance</strong> in VLMs. 
-                Existing models struggle with cropped region proposals.
+                Existing models excel at image-level tasks but struggle with cropped region proposals during detection.
               </p>
               <p>
                 We introduce <strong class="highlight-text">Decoupled Adaptivity Training (DAT)</strong>. 
                 By using in-pipeline pseudo-labels and a sigmoid-based contrastive loss, 
-                we allow the detector to "teach itself."
+                we allow the detector to "teach itself" without human annotation.
               </p>
               <p>
-                <strong>Result:</strong> State-of-the-art performance on COCO & LVIS with minimal training cost.
+                <strong>Result:</strong> State-of-the-art performance on COCO & LVIS benchmarks with minimal computational overhead (under 2 hours).
               </p>
             </div>
           </div>
@@ -141,14 +146,14 @@
             <div class="step-box">
               <span class="step-number">01</span>
               <h4 class="title is-5">Data Construction</h4>
-              <p>Generate ~400K region-text pairs from frozen detector proposals.</p>
+              <p>We construct a domain-aligned dataset $\mathcal{D}_{\text{region}}$ by cropping object proposals from a frozen detector, generating ~400K region-text pairs.</p>
             </div>
           </div>
           <div class="column is-half">
             <div class="step-box">
               <span class="step-number">02</span>
               <h4 class="title is-5">WiSE-FT Tuning</h4>
-              <p>Fine-tune visual encoder with weight-space ensembling ($\alpha=0.5$).</p>
+              <p>We fine-tune the visual encoder using a decoupled contrastive loss and Weight-Space Ensembling ($\alpha=0.5$) to preserve zero-shot capability.</p>
             </div>
           </div>
         </div>
@@ -156,48 +161,79 @@
     </div>
   </section>
 
-  <!-- Results with Interactive Slider -->
+  <!-- Results Section (Bento Grid) -->
   <section class="section" id="results">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered gradient-text scroll-reveal">Comparisons</h2>
+      <h2 class="title is-3 has-text-centered gradient-text scroll-reveal">Experimental Results</h2>
       
-      <div class="glass-card scroll-reveal">
-        <h4 class="title is-5 has-text-centered">Baseline vs. DAT (Drag to compare)</h4>
+      <!-- Bento Grid 布局 -->
+      <div class="bento-grid scroll-reveal">
         
-        <!-- 对比滑块容器 -->
-        <div class="img-comp-container">
-          <div class="img-comp-img">
-            <img src="static/images/qualitative.png" alt="Ours (DAT)"> <!-- 这里放原本的图 (Ours) -->
-          </div>
-          <div class="img-comp-img img-comp-overlay">
-            <img src="static/images/teaser.png" alt="Baseline"> <!-- 这里放 Baseline 的图 -->
+        <!-- 1. 核心结果：对比滑块 (占据全宽) -->
+        <div class="bento-item span-full">
+          <div class="bento-content">
+            <h4 class="title is-5"><i class="fas fa-eye"></i> Visual Comparison</h4>
+            <p class="subtitle is-6 mb-3">Drag the slider to see how DAT (Right) suppresses hallucinations compared to Baseline (Left).</p>
+            
+            <!-- 对比滑块容器 -->
+            <div class="img-comp-container">
+              <div class="img-comp-img">
+                <!-- 右侧图片 (Ours) -->
+                <img src="static/images/qualitative.png" alt="Ours">
+              </div>
+              <div class="img-comp-img img-comp-overlay">
+                <!-- 左侧图片 (Baseline) - 确保此图片与qualitative.png尺寸一致 -->
+                <img src="static/images/baseline.png" alt="Baseline">
+              </div>
+            </div>
           </div>
         </div>
-        <p class="caption-text mt-4">
-          <small>Interactive: Drag the slider to see the improvement in detection confidence.</small>
-        </p>
 
-        <!-- Data Table -->
-        <div class="table-container mt-5">
-          <table class="table is-fullwidth is-transparent">
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>Novel AP50</th>
-                <th>Gain</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>ViLD</td><td>27.6</td><td>-</td></tr>
-              <tr><td>CORA+</td><td>43.1</td><td>-</td></tr>
-              <tr class="highlight-row">
-                <td><strong>DAT (Ours)</strong></td>
-                <td><strong>70.1</strong></td>
-                <td><span class="tag is-success">+27.0</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- 2. 数据表格 (占据左侧) -->
+        <div class="bento-item span-7">
+          <div class="bento-content">
+            <h4 class="title is-5"><i class="fas fa-table"></i> Quantitative Analysis (COCO)</h4>
+            <div class="table-wrapper">
+              <table class="table is-fullwidth is-hoverable modern-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Backbone</th>
+                    <th>AP50 (Novel)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>ViLD (ICLR'22)</td><td>R50</td><td>27.6</td></tr>
+                  <tr><td>Detic (ECCV'22)</td><td>R50</td><td>27.8</td></tr>
+                  <tr><td>CORA+ (CVPR'23)</td><td>R50</td><td>43.1</td></tr>
+                  <tr class="highlight-row">
+                    <td><strong>DAT (Ours)</strong></td>
+                    <td><strong>R50</strong></td>
+                    <td><strong>70.1</strong> <span class="tag is-success is-light">+27.0</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="is-size-7 mt-3 has-text-grey">
+              * Comparison on COCO 48/17 split. DAT significantly outperforms existing cooperative methods.
+            </p>
+          </div>
         </div>
+
+        <!-- 3. 效率图表 (占据右侧) -->
+        <div class="bento-item span-5">
+          <div class="bento-content center-content">
+            <h4 class="title is-5"><i class="fas fa-bolt"></i> Efficiency</h4>
+            <div class="chart-container">
+              <!-- 复用 method 图片作为示例，建议替换为专门的效率对比图 -->
+              <img src="static/images/method.png" alt="Efficiency Chart" class="fit-image">
+            </div>
+            <p class="caption-text is-size-7 mt-2 has-text-centered">
+              DAT achieves SOTA performance with only <strong>2 hours</strong> of fine-tuning on a single GPU.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -213,8 +249,9 @@
           </button>
           <pre id="bibtex-text">@article{wan2025dat,
   author    = {Wan, Yazhe and Oh, Changjae},
-  title     = {The Detector Teaches Itself...},
-  year      = {2025}
+  title     = {The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Detection},
+  journal   = {arXiv preprint arXiv:XXXX.XXXXX},
+  year      = {2025},
 }</pre>
         </div>
       </div>
@@ -223,7 +260,10 @@
 
   <footer class="footer is-transparent">
     <div class="container has-text-centered">
-      <p class="is-size-7" style="color: #888;">Designed for Science.</p>
+      <p class="is-size-7" style="color: #888;">
+        This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        <br>Designed for Science.
+      </p>
     </div>
   </footer>
 
