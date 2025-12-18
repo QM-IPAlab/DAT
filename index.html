@@ -16,196 +16,8 @@
   <!-- 基础框架 Bulma -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-  <style>
-    /* --- 全局美化 --- */
-    body {
-      font-family: 'Inter', 'Noto Sans', sans-serif;
-      background-color: #fcfcfc; /* 极淡的灰白色背景，比纯白护眼 */
-      color: #2c3e50;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Google Sans', sans-serif;
-      color: #1a1a1a;
-    }
-
-    a {
-      color: #3273dc;
-      transition: color 0.2s ease;
-    }
-    a:hover {
-      color: #1a5cbe;
-    }
-
-    /* --- 容器限制 --- */
-    .container.is-max-desktop {
-      max-width: 960px;
-    }
-
-    /* --- 标题区域 Hero --- */
-    .hero-body {
-      padding-bottom: 2rem;
-    }
-    
-    .publication-title {
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 1.5rem !important;
-      background: -webkit-linear-gradient(45deg, #1a1a1a, #4a4a4a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .publication-authors {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-    
-    .author-block a {
-      color: #2c3e50;
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px dotted #ccc;
-    }
-    
-    .author-block a:hover {
-      border-bottom: 1px solid #3273dc;
-      color: #3273dc;
-    }
-
-    /* --- 按钮美化 (Pill Buttons) --- */
-    .publication-links .button {
-      border-radius: 50px; /* 胶囊形状 */
-      border: 1px solid #e1e4e8;
-      background-color: #fff;
-      color: #363636;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      font-weight: 500;
-      margin: 5px;
-      padding-left: 1.2rem;
-      padding-right: 1.2rem;
-    }
-
-    .publication-links .button:hover {
-      transform: translateY(-2px); /* 悬停上浮 */
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border-color: #363636;
-      background-color: #363636;
-      color: #fff;
-    }
-    
-    .publication-links .icon {
-      margin-right: 4px;
-    }
-
-    /* --- 图片容器与阴影 --- */
-    .teaser-card, .method-card, .results-card {
-      background: white;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 高级感的柔和阴影 */
-      margin-bottom: 1.5rem;
-      border: 1px solid #f0f0f0;
-      transition: transform 0.3s ease;
-    }
-    
-    .teaser-card:hover {
-      transform: translateY(-2px);
-    }
-
-    img {
-      border-radius: 8px;
-    }
-    
-    .caption-text {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: #666;
-      font-style: italic;
-      text-align: center;
-    }
-
-    /* --- 摘要 Abstract --- */
-    .section.abstract-section {
-      background-color: #fff;
-    }
-    
-    .abstract-box {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 16px;
-      border-left: 5px solid #3273dc; /* 左侧装饰线 */
-    }
-
-    /* --- 重点高亮 --- */
-    .text-highlight {
-      color: #b33939;
-      font-weight: 600;
-    }
-
-    /* --- 表格美化 --- */
-    .table-container {
-      overflow-x: auto;
-      margin: 2rem 0;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .table {
-      width: 100%;
-      background-color: #fff;
-      color: #333;
-    }
-    
-    .table thead th {
-      background-color: #f1f3f5;
-      color: #2c3e50;
-      border-bottom: 2px solid #dbdbdb;
-      font-weight: 700;
-    }
-    
-    .table tbody tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .table tbody tr.is-selected {
-      background-color: #e3f2fd; /* 我们的方法高亮色 */
-      color: inherit;
-      font-weight: bold;
-    }
-    
-    .best-score {
-      color: #d32f2f; /* 最佳分数红色 */
-      font-weight: bold;
-    }
-
-    /* --- BibTeX --- */
-    pre {
-      background-color: #f4f6f8;
-      border-radius: 8px;
-      border: 1px solid #e1e4e8;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    /* --- Footer --- */
-    .footer {
-      background-color: #fff;
-      padding: 3rem 1.5rem;
-      border-top: 1px solid #eaeaea;
-    }
-    
-    /* 动画类 */
-    .fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <!-- 引入自定义 CSS -->
+  <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -221,7 +33,7 @@
             <!-- Title -->
             <h1 class="title is-2 publication-title">
               The Detector Teaches Itself: <br>
-              <span style="font-size: 80%; font-weight: 400;">Lightweight Self-Supervised Adaptation for Open-Vocabulary Detection</span>
+              <span class="publication-subtitle">Lightweight Self-Supervised Adaptation for Open-Vocabulary Detection</span>
             </h1>
 
             <!-- Authors -->
@@ -235,7 +47,7 @@
             </div>
 
             <!-- Affiliations -->
-            <div class="is-size-6 publication-authors" style="color: #666; margin-top: 5px;">
+            <div class="is-size-6 publication-authors affiliation-block">
               <span class="author-block"><sup>1</sup>Queen Mary University of London</span>
             </div>
 
@@ -273,13 +85,13 @@
   </section>
 
   <!-- Teaser Section -->
-  <section class="section" style="padding-top: 0;">
+  <section class="section teaser-section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full has-text-centered">
           <div class="teaser-card fade-in">
             <!-- 替换为你的图片路径 -->
-            <img src="static/images/teaser.png" alt="DAT Framework Overview" style="width: 100%;">
+            <img src="static/images/teaser.png" alt="DAT Framework Overview">
             <div class="caption-text">
               <strong>Figure 1.</strong> We bridge the Global-Local feature gap in VLMs. 
               Our method (DAT) adapts the model using self-generated pseudo-labels, significantly improving novel object detection.
@@ -326,13 +138,13 @@
         <div class="column is-full">
           <h2 class="title is-3 has-text-centered">Methodology</h2>
           <div class="content has-text-justified">
-            <p class="has-text-centered" style="font-size: 1.1rem; margin-bottom: 2rem;">
+            <p class="has-text-centered method-subtitle">
               The <strong>DAT</strong> framework consists of two stages: Region-Aware Data Construction & Decoupled Fine-Tuning.
             </p>
           </div>
           
           <div class="method-card">
-            <img src="static/images/method.png" alt="DAT Method Overview" style="width: 100%;">
+            <img src="static/images/method.png" alt="DAT Method Overview">
             <div class="caption-text">
               <strong>Figure 2.</strong> Overview of the DAT pipeline. (Left) We generate a region-specific dataset from the detector's proposals. 
               (Right) We fine-tune the VLM visual encoder with a decoupled contrastive loss and weight-space ensembling.
@@ -341,7 +153,7 @@
           
           <div class="columns is-centered" style="margin-top: 2rem;">
             <div class="column is-half">
-              <div class="box" style="height: 100%; border-top: 3px solid #3273dc;">
+              <div class="box method-box-blue">
                 <h4 class="title is-5"><i class="fas fa-cubes"></i> 1. Region-Aware Data</h4>
                 <p>
                   We construct a domain-aligned dataset $\mathcal{D}_{\text{region}}$ by cropping object proposals. 
@@ -350,7 +162,7 @@
               </div>
             </div>
             <div class="column is-half">
-              <div class="box" style="height: 100%; border-top: 3px solid #b33939;">
+              <div class="box method-box-red">
                 <h4 class="title is-5"><i class="fas fa-sync-alt"></i> 2. Decoupled Fine-Tuning</h4>
                 <p>
                   We fine-tune only the visual encoder. To prevent catastrophic forgetting, we use <strong>WiSE-FT</strong> with $\alpha=0.5$, 
@@ -366,7 +178,7 @@
   </section>
 
   <!-- Results Section -->
-  <section class="section" style="background-color: #fcfcfc;">
+  <section class="section results-section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Experimental Results</h2>
       
@@ -376,7 +188,7 @@
           <!-- Qualitative Results -->
           <div class="results-card">
             <h4 class="title is-5 has-text-centered">Qualitative Comparison</h4>
-            <img src="static/images/qualitative.png" alt="Qualitative Results" style="width: 100%;">
+            <img src="static/images/qualitative.png" alt="Qualitative Results">
             <p class="caption-text">
               <strong>Figure 3.</strong> Visual comparison on COCO novel categories. DAT (bottom) successfully detects objects missed by the baseline (top).
             </p>
@@ -425,12 +237,12 @@
                   <td>-</td>
                 </tr>
                 <!-- Our Method Highlighting -->
-                <tr class="is-selected" style="border-left: 4px solid #3273dc;">
+                <tr class="is-selected">
                   <td><strong>DAT (Ours)</strong></td>
                   <td><strong>ResNet-50</strong></td>
                   <td><strong>12</strong></td>
                   <td class="best-score">70.1</td>
-                  <td style="color: #27ae60; font-weight: bold;">+27.0</td>
+                  <td class="gain-score">+27.0</td>
                 </tr>
               </tbody>
             </table>
