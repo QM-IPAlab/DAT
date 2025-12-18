@@ -1,13 +1,29 @@
-// 页面加载完成后执行
-document.addEventListener('DOMContentLoaded', function() {
-    // 可以添加图片轮播等功能
-    console.log('DAT Project Website Loaded');
-    
-    // 示例：为所有表格添加斑马纹
-    const tables = document.querySelectorAll('table');
-    tables.forEach((table, index) => {
-        if (index % 2 === 0) {
-            table.classList.add('is-striped');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+  // Carousel initialization
+  if (typeof bulmaCarousel === 'function') {
+    bulmaCarousel.attach('#carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
     });
+  }
+
+  // Slider initialization
+  if (typeof bulmaSlider === 'function') {
+    bulmaSlider.attach('.slider', {
+      start: 50,
+      end: 100,
+      step: 1,
+    });
+  }
+
+  // Tooltip initialization
+  if (typeof tippy === 'function') {
+    tippy('.has-tooltip', {
+      placement: 'top',
+      arrow: true,
+    });
+  }
 });
