@@ -1,104 +1,69 @@
-/* --- 1. 全局设置 & 字体 --- */
-:root {
-  --primary-color: #4a90e2;
-  --secondary-color: #9013fe;
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --text-dark: #1d1d1f;
-}
-
+/* --- Global Reset & Typography --- */
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-dark);
-  overflow-x: hidden;
-  position: relative;
-  background-color: #fcfcfc;
+  font-family: 'Inter', 'Noto Sans', sans-serif;
+  background-color: #fcfcfc; /* 极淡的灰白色背景，比纯白护眼 */
+  color: #2c3e50;
+  line-height: 1.6;
 }
 
-/* --- 2. 动态流光背景 (Mesh Gradient) --- */
-.background-animate {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: -1;
-  background: radial-gradient(circle at 10% 20%, rgba(216, 241, 255, 0.8) 0%, rgba(255, 255, 255, 0) 50%),
-              radial-gradient(circle at 90% 80%, rgba(230, 230, 250, 0.8) 0%, rgba(255, 255, 255, 0) 50%),
-              radial-gradient(circle at 50% 50%, #ffffff 0%, #f3f4f6 100%);
-  background-size: 200% 200%;
-  animation: bg-shift 15s ease infinite;
+h1, h2, h3, h4 {
+  font-family: 'Google Sans', sans-serif;
+  color: #1a1a1a;
 }
 
-@keyframes bg-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+a {
+  color: #3273dc;
+  transition: color 0.2s ease;
 }
 
-/* --- 3. 毛玻璃卡片 (Glassmorphism) --- */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 2rem;
+a:hover {
+  color: #1a5cbe;
 }
 
-.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+img {
+  border-radius: 8px;
 }
 
-.glass-nav {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+/* --- Layout Helpers --- */
+.container.is-max-desktop {
+  max-width: 960px;
 }
 
-/* --- 4. 文本排版 & 渐变字 --- */
-.gradient-text {
-  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
+.section {
+  padding: 3rem 1.5rem;
 }
 
-.highlight-text {
-  color: #2980b9;
-  font-weight: 600;
-  background: rgba(41, 128, 185, 0.1);
-  padding: 0 4px;
-  border-radius: 4px;
+/* --- Hero Section (Title & Authors) --- */
+.hero-body {
+  padding-bottom: 2rem;
 }
 
 .publication-title {
-  font-family: 'Google Sans', sans-serif;
-  font-weight: 800 !important;
-  letter-spacing: -1px;
-  font-size: 3.5rem !important;
-  background: linear-gradient(90deg, #2c3e50, #3498db);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem !important;
+  background: -webkit-linear-gradient(45deg, #1a1a1a, #4a4a4a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 10px !important;
 }
 
 .publication-subtitle {
-  color: #555;
+  font-size: 80%;
   font-weight: 400;
-  margin-top: 10px !important;
-  font-size: 1.5rem;
+  display: block;
+  margin-top: 10px;
+  color: #4a4a4a;
+  -webkit-text-fill-color: #4a4a4a; /* Reset text fill for subtitle */
 }
 
 .publication-authors {
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .affiliation-block {
   color: #666; 
-  margin-bottom: 1.5rem;
+  margin-top: 5px;
 }
 
 .author-block a {
@@ -106,242 +71,189 @@ body {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px dotted #ccc;
-  margin: 0 5px;
 }
 
-/* --- 5. 按钮美化 --- */
-.glass-btn {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  color: #333 !important;
-  font-weight: 600;
+.author-block a:hover {
+  border-bottom: 1px solid #3273dc;
+  color: #3273dc;
+}
+
+/* --- Buttons (Pill Shape) --- */
+.publication-links .button {
+  border-radius: 50px; /* 胶囊形状 */
+  border: 1px solid #e1e4e8;
+  background-color: #fff;
+  color: #363636;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  margin: 0 5px;
+  font-weight: 500;
+  margin: 5px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
 }
 
-.glass-btn:hover {
-  background: #333 !important;
-  color: #fff !important;
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+.publication-links .button:hover {
+  transform: translateY(-2px); /* 悬停上浮 */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-color: #363636;
+  background-color: #363636;
+  color: #fff;
 }
 
-/* --- 6. Bento Grid (便当盒布局 - 修复图片大小的核心) --- */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+.publication-links .icon {
+  margin-right: 4px;
 }
 
-.bento-item {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+/* --- Image Containers & Cards (High-end Look) --- */
+.teaser-section {
+  padding-top: 0;
 }
 
-.bento-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border-color: var(--primary-color);
-}
-
-.bento-content {
-  padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.center-content {
-  align-items: center;
-  justify-content: center;
-}
-
-.span-full { grid-column: span 12; }
-.span-7 { grid-column: span 7; }
-.span-5 { grid-column: span 5; }
-
-@media screen and (max-width: 768px) {
-  .span-7, .span-5, .span-full { grid-column: span 12; }
-  .publication-title { font-size: 2.5rem !important; }
-}
-
-/* --- 7. 对比滑块 (Image Slider) --- */
-.img-comp-container {
-  position: relative;
-  height: 450px; /* 强制高度，修复失衡 */
-  width: 100%;
-  overflow: hidden;
+.teaser-card, 
+.method-card, 
+.results-card {
+  background: white;
+  padding: 1rem;
   border-radius: 12px;
-  background: #f0f0f0;
-  margin-top: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔和阴影 */
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s ease;
 }
 
-.img-comp-img {
-  position: absolute;
-  width: auto;
-  height: 100%;
-  overflow: hidden;
+.teaser-card:hover,
+.results-card:hover {
+  transform: translateY(-2px);
 }
 
-.img-comp-img img {
+.teaser-card img,
+.method-card img,
+.results-card img {
+  width: 100%;
   display: block;
-  height: 100%; /* 强制图片高度填满容器 */
-  width: auto;
-  max-width: none; /* 允许宽度超出容器 */
 }
 
-/* 滑块手柄 */
-.img-comp-slider {
-  position: absolute;
-  z-index: 9;
-  cursor: ew-resize;
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid #fff;
+.caption-text {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
 }
-.img-comp-slider::before {
-  content: '\f337'; /* FontAwesome arrows */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
+
+/* --- Abstract Section --- */
+.section.abstract-section {
+  background-color: #fff;
+}
+
+.abstract-box {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 16px;
+  border-left: 5px solid #3273dc; /* 左侧装饰线 */
+}
+
+.text-highlight {
+  color: #b33939;
+  font-weight: 600;
+}
+
+/* --- Method Section Helpers --- */
+.method-subtitle {
+  font-size: 1.1rem; 
+  margin-bottom: 2rem;
+}
+
+.method-box-blue {
+  height: 100%; 
+  border-top: 3px solid #3273dc;
+}
+
+.method-box-red {
+  height: 100%; 
+  border-top: 3px solid #b33939;
+}
+
+/* --- Results Section & Tables --- */
+.results-section {
+  background-color: #fcfcfc;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.table {
+  width: 100%;
+  background-color: #fff;
   color: #333;
 }
 
-/* --- 8. 图表与图片 --- */
-.teaser-frame img, .method-image {
-  border-radius: 12px;
-  width: 100%;
-}
-
-.chart-container {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  width: 100%;
-  background: rgba(255,255,255,0.5);
-  border-radius: 12px;
-  padding: 10px;
-}
-
-.fit-image {
-  max-width: 100%;
-  max-height: 250px;
-  object-fit: contain;
-}
-
-/* --- 9. 表格美化 --- */
-.modern-table {
-  background: transparent;
-  margin-top: 10px;
-}
-.modern-table thead th {
-  border-bottom: 2px solid #eee;
-  color: #555;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.modern-table td {
-  vertical-align: middle;
-  border-bottom: 1px solid #f9f9f9;
-}
-.highlight-row {
-  background: linear-gradient(90deg, rgba(50, 115, 220, 0.05) 0%, rgba(50, 115, 220, 0) 100%);
-  border-left: 3px solid #3273dc;
+.table caption {
+  color: #666;
   font-weight: 600;
+  padding-bottom: 10px;
 }
 
-/* --- 10. 动画 (Animations) --- */
-.reveal-text {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s forwards;
-}
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
+.table thead th {
+  background-color: #f1f3f5;
+  color: #2c3e50;
+  border-bottom: 2px solid #dbdbdb;
+  font-weight: 700;
 }
 
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.scroll-down-icon {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
-  color: #aaa;
+/* Our Method Highlight */
+.table tbody tr.is-selected {
+  background-color: #e3f2fd; 
+  color: inherit;
+  font-weight: bold;
+  border-left: 4px solid #3273dc;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
-  40% {transform: translateX(-50%) translateY(-10px);}
-  60% {transform: translateX(-50%) translateY(-5px);}
+.table tbody tr.is-selected td {
+  border-color: #e3f2fd; /* Hide inner borders for cleaner look */
 }
 
-/* --- 11. 其他组件 --- */
-.step-box {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary-color);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-  height: 100%;
-  position: relative;
-}
-.step-number {
-  font-size: 2rem;
-  font-weight: 900;
-  color: rgba(0,0,0,0.05);
-  position: absolute;
-  top: 10px; right: 20px;
+.best-score {
+  color: #d32f2f; /* 最佳分数红色 */
+  font-weight: bold;
 }
 
-.bibtex-container {
-  position: relative;
+.gain-score {
+  color: #27ae60; 
+  font-weight: bold;
 }
-.copy-btn {
-  position: absolute;
-  top: 10px; right: 10px;
-  z-index: 10;
-}
+
+/* --- BibTeX --- */
 #BibTeX pre {
-  background: #f8f9fa;
-  border-radius: 12px;
-  border: none;
-  font-family: 'JetBrains Mono', monospace;
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  border: 1px solid #e1e4e8;
   padding: 1.5rem;
+  font-size: 0.9rem;
+  overflow-x: auto;
 }
+
+/* --- Footer --- */
 .footer {
-  padding: 3rem 1.5rem 2rem;
-  background-color: transparent;
+  background-color: #fff;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid #eaeaea;
+}
+
+/* --- Animations --- */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
