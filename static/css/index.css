@@ -1,0 +1,32 @@
+/* 基础样式 */
+body {
+    font-family: 'Google Sans', 'Noto Sans', sans-serif;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 作者样式 */
+.publication-authors a {
+    color: #0074D9;
+    text-decoration: none;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+/* 链接按钮 */
+.link-block {
+    margin: 0 5px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .publication-title {
+        font-size: 1.5rem !important;
+    }
+}
