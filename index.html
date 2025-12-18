@@ -27,23 +27,19 @@
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css">  <!-- 这是我们刚刚创建的CSS -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 </head>
 <body>
 
   <!-- Header Section -->
-  <section class="hero">
+  <section class="hero teaser">  <!-- 添加了teaser类 -->
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
@@ -54,7 +50,6 @@
             </h1>
             
             <div class="is-size-5 publication-authors">
-              <!-- Authors list - update with your team -->
               <span class="author-block">
                 <a href="" target="_blank">Your Name</a><sup>1</sup>,</span>
               <span class="author-block">
@@ -77,7 +72,6 @@
             <!-- Links -->
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- arXiv Link -->
                 <span class="link-block">
                   <a href="" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
@@ -88,7 +82,6 @@
                   </a>
                 </span>
                 
-                <!-- PDF Link -->
                 <span class="link-block">
                   <a href="" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
@@ -99,7 +92,6 @@
                   </a>
                 </span>
                 
-                <!-- Code Link -->
                 <span class="link-block">
                   <a href="" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
@@ -118,17 +110,17 @@
   </section>
 
   <!-- Abstract Section -->
-  <section class="section hero">
+  <section class="section fade-in-up">  <!-- 添加动画类 -->
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We address a critical bottleneck in cooperative open-vocabulary object detection: the <strong>Global–Local Feature Imbalance</strong> 
+              We address a critical bottleneck in cooperative open-vocabulary object detection: the <strong class="text-highlight">Global–Local Feature Imbalance</strong> 
               in pre-trained Vision-Language Models (VLMs). While VLMs excel at whole-image understanding, they struggle with cropped region 
               proposals during detection, leading to suboptimal performance on novel object categories. To bridge this gap, we introduce 
-              <strong>Decoupled Adaptivity Training (DAT)</strong>, a self-supervised fine-tuning paradigm that efficiently adapts VLMs to region-level 
+              <strong class="text-highlight">Decoupled Adaptivity Training (DAT)</strong>, a self-supervised fine-tuning paradigm that efficiently adapts VLMs to region-level 
               recognition without compromising their zero-shot capabilities.
             </p>
             <p>
@@ -140,8 +132,13 @@
             </p>
           </div>
           <!-- Teaser image -->
-          <div class="teaser-image">
-            <img src="static/images/teaser.png" alt="DAT Framework Overview" width="80%" class="center-image"/>
+          <div class="teaser">
+            <div class="hero-body">
+              <img src="static/images/teaser.png" alt="DAT Framework Overview" width="80%" class="center-image"/>
+              <p class="has-text-centered is-italic" style="margin-top: 1rem; color: #666;">
+                Figure 1: Overview of the DAT framework bridging the global-local feature gap.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -149,7 +146,7 @@
   </section>
 
   <!-- Method Section -->
-  <section class="hero section is-small">
+  <section class="section fade-in-up">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full">
@@ -179,7 +176,9 @@
           <div class="columns is-centered">
             <div class="column">
               <img src="static/images/method.png" alt="DAT Method Overview" width="100%" class="center-image"/>
-              <p class="has-text-centered is-italic">Figure: The DAT framework overview showing region-aware data construction and decoupled fine-tuning.</p>
+              <p class="has-text-centered is-italic" style="margin-top: 1rem; color: #666;">
+                Figure 2: The DAT framework showing region-aware data construction and decoupled fine-tuning.
+              </p>
             </div>
           </div>
         </div>
@@ -188,7 +187,7 @@
   </section>
 
   <!-- Results Section -->
-  <section class="hero section is-small">
+  <section class="section fade-in-up">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full">
@@ -256,7 +255,9 @@
             <div class="column">
               <h4 class="title is-5">Qualitative Results</h4>
               <img src="static/images/qualitative.png" alt="Qualitative comparison" width="100%" class="center-image"/>
-              <p class="has-text-centered is-italic">Figure: DAT produces more accurate and confident detections on novel objects compared to baselines.</p>
+              <p class="has-text-centered is-italic" style="margin-top: 1rem; color: #666;">
+                Figure 3: DAT produces more accurate and confident detections on novel objects compared to baselines.
+              </p>
             </div>
           </div>
         </div>
@@ -265,7 +266,7 @@
   </section>
 
   <!-- Ablation Studies -->
-  <section class="hero section is-small">
+  <section class="section fade-in-up">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full">
@@ -277,15 +278,39 @@
               </p>
               <div class="columns">
                 <div class="column">
-                  <h4 class="title is-5">Dataset Scale</h4>
-                  <p>Performance peaks at 500-1,000 images (~40K-80K crops), confirming that sufficient but not excessive data yields optimal adaptation.</p>
+                  <div class="box">
+                    <h4 class="title is-5">Dataset Scale</h4>
+                    <p>Performance peaks at 500-1,000 images (~40K-80K crops), confirming that sufficient but not excessive data yields optimal adaptation.</p>
+                  </div>
                 </div>
                 <div class="column">
-                  <h4 class="title is-5">WiSE-FT Interpolation</h4>
-                  <p>WiSE-FT ($\alpha=0.5$) improves LVIS novel AP by +1.7 with minimal COCO impact, demonstrating effective knowledge preservation.</p>
+                  <div class="box">
+                    <h4 class="title is-5">WiSE-FT Interpolation</h4>
+                    <p>WiSE-FT ($\alpha=0.5$) improves LVIS novel AP by +1.7 with minimal COCO impact, demonstrating effective knowledge preservation.</p>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <h2 class="title is-3">Citation</h2>
+          <div class="content has-background-light p-4" style="border-radius: 8px;">
+            <pre><code>@article{dat2024,
+  title={DAT: Decoupled Adaptivity Training for Vision-Language Models in Open-Vocabulary Detection},
+  author={Your Name and Co-Author and Senior Author},
+  journal={Conference/Journal Name},
+  year={2024},
+  url={https://arxiv.org/abs/XXXX.XXXXX}
+}</code></pre>
           </div>
         </div>
       </div>
