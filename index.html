@@ -164,19 +164,17 @@
           <div class="columns is-centered" style="margin-top: 2rem;">
             <div class="column is-half">
               <div class="box method-box-blue">
-                <h4 class="title is-5"><i class="fas fa-cubes"></i> 1. Region-Aware Data</h4>
+                <h4 class="title is-5">Region-Aware Data</h4>
                 <p>
-                  We construct a domain-aligned dataset $\mathcal{D}_{\text{region}}$ by cropping object proposals. 
-                  Using $N_{\text{max}}=80$ and $\tau_{\text{conf}}=0.7$, we generate ~400K high-quality region-text pairs from just 5K images.
+                  We construct a domain-aligned dataset by cropping object proposals to bridge the gap between image-level and region-level understanding. This creates perfectly aligned training data from the model's own predictions.
                 </p>
               </div>
             </div>
             <div class="column is-half">
               <div class="box method-box-red">
-                <h4 class="title is-5"><i class="fas fa-sync-alt"></i> 2. Decoupled Fine-Tuning</h4>
+                <h4 class="title is-5">Decoupled Fine-Tuning</h4>
                 <p>
-                  We fine-tune only the visual encoder. To prevent catastrophic forgetting, we use <strong>WiSE-FT</strong> with $\alpha=0.5$, 
-                  blending the fine-tuned weights with the original zero-shot weights.
+                  We fine-tune only the visual encoder while keeping other components frozen. To prevent catastrophic forgetting and preserve zero-shot capabilities, we employ weight-space ensembling techniques.
                 </p>
               </div>
             </div>
