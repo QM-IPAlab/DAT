@@ -72,21 +72,14 @@
                 <span class="link-block">
                   <a href="#" class="external-link button is-normal">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <!-- ArXiv Link -->
-                <span class="link-block">
-                  <a href="#" class="external-link button is-normal">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv</span>
+                    <span>Paper (coming soon)</span>
                   </a>
                 </span>
                 <!-- Code Link -->
                 <span class="link-block">
-                  <a href="https://github.com/QM-IPAlab/DAT" class="external-link button is-normal">
+                  <a href="#" class="external-link button is-normal">
                     <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
+                    <span>Code (coming soon)</span>
                   </a>
                 </span>
               </div>
@@ -104,7 +97,6 @@
       <div class="columns is-centered">
         <div class="column is-full has-text-centered">
           <div class="teaser-card fade-in">
-            <!-- 替换为你的图片路径 -->
             <img src="static/images/teaser.png" alt="DAT Framework Overview">
             <div class="caption-text">
               <strong>Figure 1.</strong> We bridge the Global-Local feature gap in VLMs. 
@@ -124,20 +116,25 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified abstract-box">
             <p>
-              We address a critical bottleneck in cooperative open-vocabulary object detection: the 
-              <span class="text-highlight">Global–Local Feature Imbalance</span> in pre-trained Vision-Language Models (VLMs). 
-              While VLMs excel at whole-image understanding, they struggle with cropped region proposals during detection.
+              Open-vocabulary object detection (OVD) aims to recognize objects from an open set of categories, 
+              which leverages vision-language models (VLMs) pre-trained on large-scale image-text data. 
+              The cooperative paradigm combines an object detector with a VLM to achieve zero-shot recognition 
+              of novel objects. However, VLMs pre-trained on full images often struggle to capture local object 
+              details, limiting their effectiveness when applied to region-level detection.
             </p>
             <p>
-              To bridge this gap, we introduce <span class="text-highlight">Decoupled Adaptivity Training (DAT)</span>, 
-              a self-supervised fine-tuning paradigm that efficiently adapts VLMs to region-level recognition without compromising 
-              their zero-shot capabilities. DAT operates exclusively on the visual backbone using in-pipeline pseudo-labels from a 
-              frozen detector, constructing a perfectly domain-aligned training set.
+              We present Decoupled Adaptivity Training (DAT), a self-supervised fine-tuning approach to improve 
+              VLMs for cooperative model-based object detection. Given a cooperative model consists of a pre-trained 
+              open-set detector, a closed-set detector, and a VLM, we first construct a region-aware pseudo-labeled 
+              dataset using a pre-trained closed-set object detector, in which regions corresponding to novel objects 
+              may be present but remain unlabeled or mislabeled.
             </p>
             <p>
-              Through a novel combination of a sigmoid-based contrastive loss for robust multi-label learning and WiSE-FT for 
-              global knowledge preservation, DAT achieves significant improvements in novel-class detection while maintaining 
-              strong base-class performance—all with minimal computational overhead.
+              We then fine-tune the visual backbone of the VLM in a decoupled manner, which enhances local feature 
+              alignment while preserving global semantic knowledge via weight interpolation. DAT is a plug-and-play 
+              module that requires no inference overhead and fine-tunes less than 0.8M parameters. Experiments on 
+              the COCO and LVIS datasets show that DAT consistently improves detection performance on both novel 
+              and known categories, establishing a new state of the art in cooperative open-vocabulary detection.
             </p>
           </div>
         </div>
@@ -530,18 +527,7 @@
     </div>
   </section>
 
-  <!-- BibTeX Section -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">BibTeX</h2>
-      <pre><code>@article{wan2025dat,
-  author    = {Wan, Yazhe and Oh, Changjae},
-  title     = {The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Detection},
-  journal   = {arXiv preprint arXiv:XXXX.XXXXX},
-  year      = {2025},
-}</code></pre>
-    </div>
-  </section>
+
 
   <!-- Footer -->
   <footer class="footer">
