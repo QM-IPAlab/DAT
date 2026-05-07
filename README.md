@@ -46,7 +46,7 @@ bash env.sh
 3. Activate the newly created conda environment:
 ```bash
 # Replace 'dat_env' with the exact environment name defined in your env.sh
-conda activate dat_env
+conda activate dat
 ```
 
 ### Datasets
