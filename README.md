@@ -3,7 +3,7 @@
 
 
 # The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/XXXX.XXXXX) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/the-detector-teaches-itself/open-vocabulary-object-detection-on-mscoco)](https://paperswithcode.com/sota/open-vocabulary-object-detection-on-mscoco?p=the-detector-teaches-itself)
+
 [![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://qm-ipalab.github.io/DAT/) [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/)
 
 [Yazhe Wan](https://qm-ipalab.github.io/DAT/), [Changjae Oh](https://qm-ipalab.github.io/DAT/)
