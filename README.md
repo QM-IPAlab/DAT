@@ -13,7 +13,7 @@ Official code for our paper "The Detector Teaches Itself: Lightweight Self-Super
 
 ## :rocket: News
 * **(Recent)**
-  * Project website is live at [https://qm-ipalab.github.io/DAT/]([https://qm-ipalab.github.io/DAT/])
+  * Project website is live at [https://qm-ipalab.github.io/DAT/]([[https://qm-ipalab.github.io/DAT/]](https://qm-ipalab.github.io/DAT/))
   * Code and pre-trained weights for our method (DAT) on Open-Vocabulary Detection and Novel Object Detection have been released.
 
 <hr>
