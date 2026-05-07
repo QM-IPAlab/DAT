@@ -110,9 +110,9 @@ Our fine-tuned SigLIP backbone exhibits substantially improved region–text ali
 
 | Input Image | CFM Baseline | Ours (DAT) |
 |-------------|--------------|------------|
-| <img src="media/r1.jpeg" width="200"/> | <img src="media/img_1_cfm.jpg" width="200"/> | <img src="media/img_1_ours.jpg" width="200"/> |
-| <img src="media/img_2_input.jpg" width="200"/> | <img src="media/img_2_cfm.jpg" width="200"/> | <img src="media/img_2_ours.jpg" width="200"/> |
-| <img src="media/img_3_input.jpg" width="200"/> | <img src="media/img_3_cfm.jpg" width="200"/> | <img src="media/img_3_ours.jpg" width="200"/> |
+| <img src="media/r1.jpeg" width="200"/> | <img src="media/cfmc1.jpeg" width="200"/> | <img src="media/ourc1.jpeg" width="200"/> |
+| <img src="media/r2.jpeg" width="200"/> | <img src="media/cfmc2.jpeg" width="200"/> | <img src="media/ourc2.jpeg" width="200"/> |
+| <img src="media/r3.jpeg" width="200"/> | <img src="media/cfmc3.jpeg" width="200"/> | <img src="media/ourc3.jpeg" width="200"/> |
 
 To see more visualizations and details, please visit our [project website](https://qm-ipalab.github.io/DAT/).
 
