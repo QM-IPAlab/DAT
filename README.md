@@ -110,7 +110,7 @@ Our fine-tuned SigLIP backbone exhibits substantially improved region–text ali
 
 | Input Image | CFM Baseline | Ours (DAT) |
 |-------------|--------------|------------|
-| <img src="media/img_1_input.jpg" width="200"/> | <img src="media/img_1_cfm.jpg" width="200"/> | <img src="media/img_1_ours.jpg" width="200"/> |
+| <img src="media/r1.jpeg" width="200"/> | <img src="media/img_1_cfm.jpg" width="200"/> | <img src="media/img_1_ours.jpg" width="200"/> |
 | <img src="media/img_2_input.jpg" width="200"/> | <img src="media/img_2_cfm.jpg" width="200"/> | <img src="media/img_2_ours.jpg" width="200"/> |
 | <img src="media/img_3_input.jpg" width="200"/> | <img src="media/img_3_cfm.jpg" width="200"/> | <img src="media/img_3_ours.jpg" width="200"/> |
 
