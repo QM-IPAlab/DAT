@@ -4,9 +4,9 @@
 
 # The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection
 
-[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://qm-ipalab.github.io/DAT/) [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/)
+[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://qm-ipalab.github.io/DAT/) [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2605.03642)
 
-[Yazhe Wan](https://qm-ipalab.github.io/DAT/), [Changjae Oh](https://qm-ipalab.github.io/DAT/)
+[Yazhe Wan](https://scholar.google.com/citations?hl=zh-CN&user=vAienOwAAAAJ), [Changjae Oh](https://cj-oh.github.io)
 *Queen Mary University of London, London, UK*
 
 Official code for our paper "The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection" (DAT).
