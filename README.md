@@ -19,7 +19,7 @@ Official code for our paper "The Detector Teaches Itself: Lightweight Self-Super
 <hr>
 
 ![method-diagram](https://qm-ipalab.github.io/DAT/media/architecture.png)
-*(Please replace the image link with the actual link to your pipeline diagram)*
+
 
 > **Abstract:** *Open-vocabulary object detection aims to recognize objects from an open set of categories, which leverages vision-language models (VLMs) pre-trained on large-scale image-text data. The cooperative paradigm combines an object detector with a VLM to achieve zero-shot recognition of novel objects. However, VLMs pre-trained on full images often struggle to capture local object details, limiting their effectiveness when applied to region-level detection. We present Decoupled Adaptivity Training (DAT), a self-supervised fine-tuning approach to improve VLMs for cooperative model-based object detection. Given a cooperative model consists of a closed-set detector and a VLM, we first construct a region-aware pseudo-labeled dataset using a pre-trained closed-set object detector, in which regions corresponding to novel objects may be present but remain unlabeled or mislabeled. We then fine-tune the visual backbone of the VLM in a decoupled manner, which enhances local feature alignment while preserving global semantic knowledge via weight interpolation. DAT is a plug-and-play module that requires no inference overhead and fine-tunes less than 0.8M parameters. Experiments on the COCO and LVIS datasets show that DAT consistently improves detection performance on both novel and known categories, establishing a new state of the art in cooperative open-vocabulary detection.*
 
@@ -135,4 +135,3 @@ If you found our work helpful, please consider starring the repository ⭐⭐⭐
 
 --- 
 
-*注：部分链接（如 `COCO-OVD-Annotations` 下载链接、图片路径以及运行脚本的确切路径名称）使用了占位符，您可以根据您代码仓库的实际目录名称进行替换微调。*
