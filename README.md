@@ -124,11 +124,14 @@ This work was supported by the Korea Institute for Advancement of Technology (KI
 ## :black_nib: Citation
 If you found our work helpful, please consider starring the repository ⭐⭐⭐ and citing our paper:
 ```bibtex
-@inproceedings{wan2026detector,
-    author    = {Wan, Yazhe and Oh, Changjae},
-    title     = {The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection},
-    booktitle = {arXiv preprint},
-    year      = {2026}
+@misc{wan2026detectorteachesitselflightweight,
+      title={The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection}, 
+      author={Yazhe Wan and Changjae Oh},
+      year={2026},
+      eprint={2605.03642},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.03642}, 
 }
 ```
 
