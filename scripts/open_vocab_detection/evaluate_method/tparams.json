@@ -1,0 +1,9 @@
+{
+    "detectron2_dir": "datasets",
+    "visualize": false,
+    "data_split": "coco_2017_train",
+    "sam_checkpoint": "weights/SAM_weights.pth",
+    "gdino_checkpoint": "weights/GDINO_weights.pth",
+    "cfg_file": "./cfg/OpenVocab/R101-FPN-New-Baseline.py",
+    "rcnn_weight_dir": "weights/MaskRCNN_COCO_OVD"
+}

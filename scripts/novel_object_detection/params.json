@@ -1,0 +1,11 @@
+{
+    "detectron2_dir": "datasets",
+    "visualize": false,
+    "lvis_data_split": "lvis_v1_val",
+    "class_len_per_prompt": 81,
+    "sam_checkpoint": "weights/SAM_weights.pth",
+    "gdino_checkpoint": "weights/GDINO_weights.pth",
+    "cfg_file": "cfg/MaskRCNN_R101-FPN-New-Baseline/R101-FPN-New-Baseline.py",
+    "rcnn_weight_dir": "weights/maskrcnn_v2"
+}
+
