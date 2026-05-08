@@ -45,7 +45,6 @@ bash env.sh
 ```
 3. Activate the newly created conda environment:
 ```bash
-# Replace 'dat_env' with the exact environment name defined in your env.sh
 conda activate dat
 ```
 
@@ -53,8 +52,8 @@ conda activate dat
 To download and setup the required datasets used in this work, please follow these steps:
 1. Download the COCO2017 dataset from their official website: [https://cocodataset.org/#download](https://cocodataset.org/#download). Specifically, download `2017 Train images`, `2017 Val images`, `2017 Test images`, and their annotation files `2017 Train/Val annotations`.
 2. Download the LVIS v1.0 annotations from: [https://www.lvisdataset.org/dataset](https://www.lvisdataset.org/dataset). There is no need to download images from this website as LVIS uses the same COCO2017 images. Specifically download the annotation files corresponding to the training set (1GB), and validation set (192 MB).
-3. Download extra/custom annotation files for COCO open-vocabulary splits from: [COCO-OVD-Annotations](YOUR_LINK_HERE).
-4. Download extra/custom annotation file for `lvis_val_subset` dataset from: [LVIS-Val-Subset](YOUR_LINK_HERE).
+3. Download extra/custom annotation files for COCO open-vocabulary splits from: [COCO-OVD-Annotations]().
+4. Download extra/custom annotation file for `lvis_val_subset` dataset from: [LVIS-Val-Subset]().
 5. Detectron2 requires you to setup the datasets in a specific folder format/structure, for that it uses the environment variable `DETECTRON2_DATASETS`. The file structure should be as follows:
 - `coco/`
   - `annotations/`
