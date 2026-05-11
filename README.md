@@ -1,12 +1,9 @@
 
-
-
-
 # The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection
 
 [![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://qm-ipalab.github.io/DAT/) [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2605.03642)
 
-[Yazhe Wan](https://scholar.google.com/citations?hl=zh-CN&user=vAienOwAAAAJ), [Changjae Oh](https://cj-oh.github.io)
+[Yazhe Wan](https://scholar.google.com/citations?hl=zh-CN&user=vAienOwAAAAJ),[Changjae Oh](https://cj-oh.github.io)
 *Queen Mary University of London, London, UK*
 
 Official code for our paper "The Detector Teaches Itself: Lightweight Self-Supervised Adaptation for Open-Vocabulary Object Detection" (DAT).
@@ -52,7 +49,7 @@ conda activate dat
 To download and setup the required datasets used in this work, please follow these steps:
 1. Download the COCO2017 dataset from their official website: [https://cocodataset.org/#download](https://cocodataset.org/#download). Specifically, download `2017 Train images`, `2017 Val images`, `2017 Test images`, and their annotation files `2017 Train/Val annotations`.
 2. Download the LVIS v1.0 annotations from: [https://www.lvisdataset.org/dataset](https://www.lvisdataset.org/dataset). There is no need to download images from this website as LVIS uses the same COCO2017 images. Specifically download the annotation files corresponding to the training set (1GB), and validation set (192 MB).
-3. Download extra/custom annotation files for COCO open-vocabulary splits from: [COCO-OVD-Annotations]().
+3. Download extra/custom annotation files for COCO open-vocabulary splits from:[COCO-OVD-Annotations]().
 4. Download extra/custom annotation file for `lvis_val_subset` dataset from: [LVIS-Val-Subset]().
 5. Detectron2 requires you to setup the datasets in a specific folder format/structure, for that it uses the environment variable `DETECTRON2_DATASETS`. The file structure should be as follows:
 - `coco/`
@@ -75,6 +72,49 @@ Place the pre-trained model weights in the required directories and configure th
 - **maskrcnn_v2 / MaskRCNN_COCO_OVD**: Pre-trained Mask-RCNN weights for closed-set region proposals.
 - **DAT_SigLIP_weights.pth**: *(New)* Our fine-tuned SigLIP visual backbone weights.
 
+
+## :running: Running the Code (Training & Evaluation)
+
+Please ensure you are running the following commands from the **root directory** of the `DAT` repository. 
+
+> **⚠️ Note:** Remember to replace the dataset and model weights paths in the respective scripts or `.json` configuration files before running.
+
+### 1. Fine-Tuning the VLM (SigLIP)
+You can fine-tune the SigLIP model using either our generated pseudo-labels (via Mask R-CNN) or ground-truth labels.
+
+**For COCO OVD Dataset:**
+- Fine-tune using Mask R-CNN generated bounding boxes and pseudo-labels:
+  ```bash
+  python -m scripts/open_vocab_detection/evaluate_method/ft.py
+  ```
+- Fine-tune using Ground Truth labels:
+  ```bash
+  python -m scripts/open_vocab_detection/evaluate_method/ft_gt.py
+  ```
+
+**For LVIS Dataset:**
+- Fine-tune using Mask R-CNN generated pseudo-labels:
+  ```bash
+  python -m scripts/novel_object_detection/ft.py
+  ```
+- Fine-tune using Ground Truth labels:
+  ```bash
+  python -m scripts/novel_object_detection/ft_gt.py
+  ```
+
+### 2. Evaluation
+To evaluate the performance of our method on the COCO and LVIS benchmarks:
+
+- **Evaluate on COCO OVD:**
+  ```bash
+  python -m scripts/open_vocab_detection/evaluate_method/main.py
+  ```
+- **Evaluate on LVIS v1.0:**
+  ```bash
+  python -m scripts/novel_object_detection/main.py
+  ```
+
+
 ## :mag_right: Open-Vocabulary Detection on LVIS v1.0 Val
 
 Our DAT framework significantly enhances the cooperative baseline across all splits.
@@ -88,7 +128,6 @@ Our DAT framework significantly enhances the cooperative baseline across all spl
 
 **Table 1:** Comparison of object detection performance using mAP on the *lvis_val* dataset.
 
-*To reproduce these results, configure the dataset and weight paths in `scripts/evaluate_lvis/params.json` and run the evaluation script (details to be updated).*
 
 ## :medal_military: Open Vocabulary Detection on COCO OVD Dataset
 
@@ -101,7 +140,6 @@ Our DAT framework significantly enhances the cooperative baseline across all spl
 
 **Table 2:** Results on the COCO OVD benchmark. Our method outperforms all prior cooperative and end-to-end approaches, achieving the highest novel-class AP<sub>50</sub> by a large margin.
 
-*To reproduce these results, configure the paths in `scripts/evaluate_coco/params.json` and run the main script.*
 
 ## :framed_picture: Qualitative Visualization
 
@@ -134,6 +172,3 @@ If you found our work helpful, please consider starring the repository ⭐⭐⭐
       url={https://arxiv.org/abs/2605.03642}, 
 }
 ```
-
---- 
-
